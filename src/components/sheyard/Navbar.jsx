@@ -10,14 +10,7 @@ const Navbar = () => {
                 Home</NavLink>
         </li>
         <li>
-            <NavLink to='estate' className={({ isActive }) =>
-                isActive
-                    ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
-                    : "font-bold"}>
-                Estate</NavLink>
-        </li>
-        <li>
-            <NavLink to='login' className={({ isActive }) =>
+            <NavLink to='/login' className={({ isActive }) =>
                 isActive
                     ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
                     : "font-bold"}>
@@ -36,7 +29,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className="w-14" src="/logo.png" alt="" />
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">Vacay<span className="text-green-400">Vibes</span></h3>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">Vacay<span className="text-[#4CCD99]">Vibes</span></h3>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-bold text-xs lg:text-lg  space-x-3">

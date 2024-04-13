@@ -10,12 +10,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay,  Pagination } from 'swiper/modules';
 const Banner = () => {
     return (
         <Swiper
             pagination={true}
             modules={[Pagination, Autoplay]}
+            navigation={true}
             loop={true} autoplay={{
                 delay: 2500,
             }}>
@@ -24,9 +25,9 @@ const Banner = () => {
                     <div className="hero-overlay bg-opacity-60l"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="text-center bg-[#20212048] p-4">
-                            <h1 className="text-5xl font-bold hover:text-green-400 cursor-pointer">Find Your Dream Property</h1>
+                            <h1 className="text-5xl font-bold  cursor-pointer">Find Your Dream Property</h1>
                             <p className="mb-2">We are provide the best property in suitable price. <br /> You can find your dream property by us.</p>
-                            <button className="btn btn-sm bg-green-400">Learn More</button>
+                            <button className="btn btn-sm bg-[#4CCD99]">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -36,9 +37,9 @@ const Banner = () => {
                     <div className="hero-overlay bg-opacity-60l"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="text-center bg-[#20212048] p-4">
-                            <h1 className="text-5xl font-bold hover:text-green-400 cursor-pointer">Find Your Dream Property</h1>
+                            <h1 className="text-5xl font-bold  cursor-pointer">Find Your Dream Property</h1>
                             <p className="mb-2">We are provide the best property in suitable price. <br /> You can find your dream property by us.</p>
-                            <button className="btn btn-sm bg-green-400">Learn More</button>
+                            <button className="btn btn-sm bg-[#4CCD99]">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -48,9 +49,9 @@ const Banner = () => {
                     <div className="hero-overlay bg-opacity-60l"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="text-center bg-[#20212048] p-4">
-                            <h1 className="text-5xl font-bold hover:text-green-400 cursor-pointer">Find Your Dream Property</h1>
+                            <h1 className="text-5xl font-bold  cursor-pointer">Find Your Dream Property</h1>
                             <p className="mb-2">We are provide the best property in suitable price. <br /> You can find your dream property by us.</p>
-                            <button className="btn btn-sm bg-green-400">Learn More</button>
+                            <button className="btn btn-sm bg-[#4CCD99]">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -60,9 +61,9 @@ const Banner = () => {
                     <div className="hero-overlay bg-opacity-60l"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="text-center bg-[#20212048] p-4">
-                            <h1 className="text-5xl font-bold hover:text-green-400 cursor-pointer">Find Your Dream Property</h1>
+                            <h1 className="text-5xl font-bold  cursor-pointer">Find Your Dream Property</h1>
                             <p className="mb-2">We are provide the best property in suitable price. <br /> You can find your dream property by us.</p>
-                            <button className="btn btn-sm bg-green-400">Learn More</button>
+                            <button className="btn btn-sm bg-[#4CCD99]">Learn More</button>
                         </div>
                     </div>
                 </div>
