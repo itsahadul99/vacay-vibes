@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -12,7 +13,7 @@ const ContactUs = () => {
                     <h3 className="text-lg md:text-2xl lg:text-3xl font-semibold">Get in Touch</h3>
                     <p className="text-sm md:text-lg font-semibold"><span className=" font-medium">Email: </span> vacayvibes2343@gmail.com</p>
                     <p className="text-sm md:text-lg font-semibold"><span className=" font-medium">Phone: 01967271561</span> </p>
-                    <p className="text-xs md:text-sm ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi ratione aliquam ut quasi amet aspernatur cupiditate vel accusantium id magni.</p>
+                    <p className="text-xs md:text-sm ">Questions about properties? We've got you covered. Reach out to our expert team today for all your real estate needs. Let's get started on finding your dream property or perfect buyer!</p>
                 </div>
                 <div className="flex-1 space-y-5 mt-4">
                     <div className="flex flex-col gap-3 md:flex-row *:p-4 justify-between *:border-2 *:border-[#4CCD99] *:rounded-md *:bg-[#31363F]">

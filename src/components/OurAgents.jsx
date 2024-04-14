@@ -1,13 +1,5 @@
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
-import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-// import required modules
-import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
-
-
 const OurAgents = () => {
     return (
         <div>
@@ -17,86 +9,56 @@ const OurAgents = () => {
                 <h1 className="text-xl uppercase md:text-3xl lg:text-5xl font-normal pb-2 ">Meet Our Agents</h1>
                 <hr className="bg-[#4CCD99] w-2/6 lg:w-1/6 h-1 " />
             </div>
-            <Swiper
-                slidesPerView={3}
-                loop={true}
-                freeMode={true}
-                navigation={true}
-                autoplay={{
-                    delay: 3000,
-                }}
-                modules={[FreeMode, Navigation, Autoplay]}>
-                <SwiperSlide>
-                    <div className="text-white relative p-5 flex flex-col justify-center">
-                        <img className="w-full" src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/02/fatmaghaly-1-270x340.png'} />
-                        <div className=" w-full bg-[#222222] absolute -bottom-2 space-y-1">
-                            <h3 className="text-center text-xs lg:text-lg font-semibold mt-2">Fatema Khatun</h3>
-                            <p className="text-center text-gray-300 text-sm">4 properties</p>
-                            <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
-                                <FaFacebook size={20} className="hover:text-black cursor-pointer" />
-                                <FaInstagram size={20} className="hover:text-black cursor-pointer" />
-                                <FaTwitter size={20} className="hover:text-black cursor-pointer" />
-                            </div>
+            <div className="flex flex-col md:flex-row lg:flex-row md:flex-wrap lg:flex-nowrap gap-5">
+                <div className="text-white relative p-5 flex flex-col justify-center">
+                    <img className="w-full" src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/02/fatmaghaly-1-270x340.png'} />
+                    <div className=" w-full bg-[#222222] absolute -bottom-2 space-y-1">
+                        <h3 className="text-center text-xs lg:text-lg font-semibold mt-2">Fatema Khatun</h3>
+                        <p className="text-center text-gray-300 text-sm">4 properties</p>
+                        <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
+                            <FaFacebook size={20} className="hover:text-black cursor-pointer" />
+                            <FaInstagram size={20} className="hover:text-black cursor-pointer" />
+                            <FaTwitter size={20} className="hover:text-black cursor-pointer" />
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="text-white relative p-5 flex flex-col justify-center">
-                        <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/abodyswede-270x340.png'} />
-                        <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
-                            <h3 className="text-center text-lg font-semibold mt-2">Azam Khan</h3>
-                            <p className="text-center text-gray-300 text-sm">6 properties</p>
-                            <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
-                                <FaFacebook size={20} className="hover:text-black cursor-pointer" />
-                                <FaInstagram size={20} className="hover:text-black cursor-pointer" />
-                                <FaTwitter size={20} className="hover:text-black cursor-pointer" />
-                            </div>
+                </div>
+                <div className="text-white relative p-5 flex flex-col justify-center">
+                    <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/abodyswede-270x340.png'} />
+                    <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
+                        <h3 className="text-center text-lg font-semibold mt-2">Azam Khan</h3>
+                        <p className="text-center text-gray-300 text-sm">6 properties</p>
+                        <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
+                            <FaFacebook size={20} className="hover:text-black cursor-pointer" />
+                            <FaInstagram size={20} className="hover:text-black cursor-pointer" />
+                            <FaTwitter size={20} className="hover:text-black cursor-pointer" />
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="text-white relative p-5 flex flex-col justify-center">
-                        <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/ayamagdy-270x340.png'} />
-                        <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
-                            <h3 className="text-center text-lg font-semibold mt-2">Tasfiya Khatun</h3>
-                            <p className="text-center text-gray-300 text-sm">8 properties</p>
-                            <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
-                                <FaFacebook size={20} className="hover:text-black cursor-pointer" />
-                                <FaInstagram size={20} className="hover:text-black cursor-pointer" />
-                                <FaTwitter size={20} className="hover:text-black cursor-pointer" />
-                            </div>
+                </div>
+                <div className="text-white relative p-5 flex flex-col justify-center">
+                    <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/ayamagdy-270x340.png'} />
+                    <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
+                        <h3 className="text-center text-lg font-semibold mt-2">Tasfiya Khatun</h3>
+                        <p className="text-center text-gray-300 text-sm">8 properties</p>
+                        <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
+                            <FaFacebook size={20} className="hover:text-black cursor-pointer" />
+                            <FaInstagram size={20} className="hover:text-black cursor-pointer" />
+                            <FaTwitter size={20} className="hover:text-black cursor-pointer" />
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="text-white relative p-5 flex flex-col justify-center">
-                        <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/modymagdy-270x340.png'} />
-                        <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
-                            <h3 className="text-center text-lg font-semibold mt-2">Mickel Jackson</h3>
-                            <p className="text-center text-sm text-gray-300">9 properties</p>
-                            <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
-                                <FaFacebook size={20} className="hover:text-black cursor-pointer" />
-                                <FaInstagram size={20} className="hover:text-black cursor-pointer" />
-                                <FaTwitter size={20} className="hover:text-black cursor-pointer" />
-                            </div>
+                </div>
+                <div className="text-white relative p-5 flex flex-col justify-center">
+                    <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/modymagdy-270x340.png'} />
+                    <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
+                        <h3 className="text-center text-lg font-semibold mt-2">Mickel Jackson</h3>
+                        <p className="text-center text-sm text-gray-300">9 properties</p>
+                        <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
+                            <FaFacebook size={20} className="hover:text-black cursor-pointer" />
+                            <FaInstagram size={20} className="hover:text-black cursor-pointer" />
+                            <FaTwitter size={20} className="hover:text-black cursor-pointer" />
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="text-white relative p-5 flex flex-col justify-center">
-                        <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/marcoghaly-270x340.png'} />
-                        <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
-                            <h3 className="text-center text-lg font-semibold mt-2">Marco Gali</h3>
-                            <p className="text-center text-sm text-gray-300">5 properties</p>
-                            <div className="bg-[#4CCD99] flex justify-center mb-3 gap-3 w-1/2 mx-auto py-2">
-                                <FaFacebook size={20} className="hover:text-black cursor-pointer" />
-                                <FaInstagram size={20} className="hover:text-black cursor-pointer" />
-                                <FaTwitter size={20} className="hover:text-black cursor-pointer" />
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-            </Swiper>
+                </div>
+            </div>
         </div>
     );
 };

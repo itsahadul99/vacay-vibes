@@ -40,17 +40,17 @@ const Navbar = () => {
             </li>
         }
         <li>
-        <NavLink to='/contact' className={({ isActive }) =>
-            isActive
-                ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
-                : "font-bold"}>
-            Contact Us</NavLink>
-    </li>
+            <NavLink to='/contact' className={({ isActive }) =>
+                isActive
+                    ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                    : "font-bold"}>
+                Contact Us</NavLink>
+        </li>
     </>
     return (
         <div className="navbar my-3 lg:mt-6">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className="dropdown" data-aos="fade-right" data-aos-duration="2000">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
@@ -58,15 +58,15 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <img className="w-14" src="/logo.png" alt="" />
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">Vacay<span className="text-[#4CCD99]">Vibes</span></h3>
+                <img data-aos="fade-right" data-aos-duration = "2000" className="w-14" src="/logo.png" alt="" />
+                <h3 data-aos="fade-right" data-aos-duration = "2000" className="text-xl md:text-2xl lg:text-3xl font-bold">Vacay<span className="text-[#4CCD99]">Vibes</span></h3>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div data-aos="fade-up" data-aos-duration='2000' className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-bold text-xs lg:text-lg  space-x-3">
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div data-aos="fade-left" data-aos-duration='2000' className="navbar-end">
                 {
                     user ?
                         <div className="dropdown dropdown-end">

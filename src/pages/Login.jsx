@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
@@ -17,7 +17,6 @@ const Login = () => {
         logIn(email, password)
         .then(() => {
             toast('Successfully logged in 😍')
-            // navigate
             navigate(location?.state? location.state: '/');
         })
         .catch(error => setError(error.message))
@@ -26,16 +25,18 @@ const Login = () => {
         setError(null);
         googleLogIn()
         .then(() => {
-            toast('Successfully logged in by Google 😍')
+            toast('Successfully logged in by Google 😍');
+            navigate(location?.state? location.state: '/');
         })
         .catch(error => setError(error.message))
     }
     const handleGithubLogIn = () => {
         setError(null);
-        githubLogin(() => {
-            toast('Successfully logged in by Github 😍')
+        githubLogin()
+        .then(() => {
+            toast('Successfully logged in by Github 😍');
+            navigate(location?.state? location.state: '/');
         })
-        .then()
         .catch(error => setError(error.message))
     }
     
@@ -93,9 +94,6 @@ const Login = () => {
                 </button>
                 <button onClick={handleGithubLogIn} aria-label="Log in with Github" className="p-3 rounded-full hover:bg-gray-200">
                     <FaGithub size={30} />
-                </button>
-                <button  aria-label="Log in with GitHub" className="p-3 rounded-full hover:bg-gray-200">
-                    <FaFacebook  size={30}/>
                 </button>
             </div>
             <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">

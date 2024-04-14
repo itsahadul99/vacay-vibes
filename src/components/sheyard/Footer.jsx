@@ -65,6 +65,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <hr />
                 <div className="py-6 text-sm text-center text-gray-400 dark:text-gray-600">© 1968 Vacay Vibes Co. All rights reserved.</div>
             </div>
         </div>
