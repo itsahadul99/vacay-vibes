@@ -2,18 +2,38 @@ import { useContext } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
-    const {logIn, error, setError} = useContext(AuthContext);
+    const {logIn, error, setError, googleLogIn, githubLogin} = useContext(AuthContext);
     const handleLogIn = (e) => {
         e.preventDefault();
         setError(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
         logIn(email, password)
+        .then(() => {
+            toast('Successfully logged in 😍')
+        })
+        .catch(error => setError(error.message))
+    }
+    const handleGoogleLonIn = () => {
+        setError(null);
+        googleLogIn()
+        .then(() => {
+            toast('Successfully logged in by Google 😍')
+        })
+        .catch(error => setError(error.message))
+    }
+    const handleGithubLogIn = () => {
+        setError(null);
+        githubLogin(() => {
+            toast('Successfully logged in by Github 😍')
+        })
         .then()
         .catch(error => setError(error.message))
     }
+    
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Login</h1>
@@ -60,13 +80,13 @@ const Login = () => {
             </div>
             {/* Social icons */}
             <div className="flex justify-center space-x-4">
-                <button aria-label="Log in with Google" className="p-3 rounded-full hover:bg-gray-200">
+                <button onClick={handleGoogleLonIn} aria-label="Log in with Google" className="p-3 rounded-full hover:bg-gray-200">
                     <FaGoogle size={30} />
                 </button>
-                <button aria-label="Log in with Twitter" className="p-3 rounded-full hover:bg-gray-200">
+                <button onClick={handleGithubLogIn} aria-label="Log in with Github" className="p-3 rounded-full hover:bg-gray-200">
                     <FaGithub size={30} />
                 </button>
-                <button aria-label="Log in with GitHub" className="p-3 rounded-full hover:bg-gray-200">
+                <button  aria-label="Log in with GitHub" className="p-3 rounded-full hover:bg-gray-200">
                     <FaFacebook  size={30}/>
                 </button>
             </div>

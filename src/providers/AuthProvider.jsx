@@ -2,15 +2,18 @@
 /* eslint-disable react/prop-types */
 import {
     createUserWithEmailAndPassword,
-    getAuth,
     onAuthStateChanged,
     signInWithEmailAndPassword,
+    signInWithPopup,
     signOut,
+    GoogleAuthProvider,
+    GithubAuthProvider
   } from "firebase/auth";
   import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
   export const AuthContext = createContext(null);
-  
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null)
@@ -30,6 +33,14 @@ import auth from "../firebase/firebase.config";
       setLoading(true)
       return signOut(auth);
     }
+    const googleLogIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    }
+    const githubLogin = () => {
+        setLoading(true);
+        return signInWithPopup(auth, githubProvider);
+    }
   
     useEffect(() => {
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,6 +59,8 @@ import auth from "../firebase/firebase.config";
       createUser,
       logIn,
       logOut,
+      googleLogIn,
+      githubLogin,
       error,
       setError
     };

@@ -1,13 +1,17 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, setError } = useContext(AuthContext)
     const handleLogOut = () => {
+        setError(null);
         logOut()
-        .then()
-        .catch(error => console.error(error))
+        .then(() => {
+            toast('Successfully logged out !!')
+        })
+        .catch(error => setError(error.message))
     }
     const links = <>
         <li>
@@ -24,6 +28,15 @@ const Navbar = () => {
                     : "font-bold"}>
                 Login</NavLink>
         </li>
+        {
+            user && <li>
+                <NavLink to='/updateProfile' className={({ isActive }) =>
+                isActive
+                    ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                    : "font-bold"}>
+                Update Profile</NavLink>
+            </li>
+        }
     </>
     return (
         <div className="navbar my-3 lg:mt-6">
@@ -47,22 +60,19 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                    //  <div className="dropdown dropdown-end">
-                    //     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    //         <div className="w-12 rounded-full">
-                    //             <img alt="User Image" src={`${user.photoURL}`} />
-                    //         </div>
-                    //     </div>
-                    //     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
-                    //         <li><a>Update Profile</a></li>
-                    //         <li><a>Logout</a></li>
-                    //     </ul>
-                    // </div> 
-                    <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+                     <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-12 rounded-full">
+                                <img alt="User Image" src={`${user?.photoURL}`} />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a onClick={handleLogOut}>Logout</a></li>
+                        </ul>
+                    </div> 
+                    // <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
                     : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
                 }
-
-
             </div>
         </div>
     );

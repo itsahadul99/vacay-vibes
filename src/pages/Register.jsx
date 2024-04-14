@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const {createUser, user, error, setError} = useContext(AuthContext);
@@ -12,8 +13,22 @@ const Register = () => {
         const email = e.target.email.value;
         const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
+        if(password.length< 6){
+            setError('Password length must be at least 6 character');
+            return;
+        }
+        if(!/^(?=.*[A-Z])/.test(password)){
+            setError('Password must have an one Uppercase letter')
+            return;
+        }
+        if(!/^(?=.*[a-z])/.test(password)){
+            setError('Password must have an one Lowercase letter')
+            return;
+        }
         createUser(email, password)
-        .then()
+        .then(() => {
+            toast('Successfully Register')
+        })
         .catch(error => {
             setError(error.message)
         })
