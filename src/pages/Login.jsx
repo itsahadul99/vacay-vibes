@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext);
+    const {logIn, error, setError} = useContext(AuthContext);
     const handleLogIn = (e) => {
         e.preventDefault();
+        setError(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
         logIn(email, password)
-        .then(res => {
-            console.log(res.user);
-        })
-        .catch(error => console.error(error))
+        .then()
+        .catch(error => setError(error.message))
     }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
@@ -31,6 +30,11 @@ const Login = () => {
                         Password
                     </label>
                     <input type="password" name="password"  placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <div>
+                        {
+                            error && <h5 className="text-red-400">{error}</h5>
+                        }
+                    </div>
                     <div className="flex justify-end text-xs ">
                         <a href="#" className="hover:underline">
                             Forgot Password?

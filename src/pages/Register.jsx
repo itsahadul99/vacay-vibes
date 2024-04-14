@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
-    const {createUser, user} = useContext(AuthContext);
+    const {createUser, user, error, setError} = useContext(AuthContext);
     const handleForm = (e) =>{
         e.preventDefault();
+        setError(null)
         const name = e.target.name.value;
         const email = e.target.email.value;
         const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
         createUser(email, password)
-        .then(res => {
-            console.log(res.user);
-        })
+        .then()
         .catch(error => {
-            console.error(error);
+            setError(error.message)
         })
     }
     return (
@@ -47,6 +46,11 @@ const Register = () => {
                         Password
                     </label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                </div>
+                <div>
+                    {
+                        error && <h5 className="text-red-400">{error}</h5>
+                    }
                 </div>
                 {/* Sign in Button */}
                 <button className="text-lg rounded-xl relative p-[10px] block w-full bg-[#4CCD99] text-white border-y-4 duration-500 overflow-hidden focus:border-[#4CCD99] z-50 group">
