@@ -1,28 +1,46 @@
+/* eslint-disable no-unused-vars */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+    const {createUser, user} = useContext(AuthContext);
+    const handleForm = (e) =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const photoURL = e.target.photoURL.value;
+        const password = e.target.password.value;
+        createUser(email, password)
+        .then(res => {
+            console.log(res.user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Register</h1>
             {/* Input fields and the form started */}
-            <form action="" className="space-y-6">
+            <form onSubmit={handleForm} className="space-y-6">
                 <div className="space-y-2 text-sm">
                     <label htmlFor="username" className="block ">
                         Your name
                     </label>
-                    <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
+                    <input type="text" name="name" placeholder="Username" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
                     <label htmlFor="username" className="block ">
                         Email
                     </label>
-                    <input type="email" required name="username" id="username" placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
+                    <input type="email" required name="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
                     <label htmlFor="username" className="block ">
                         PhotoURL
                     </label>
-                    <input type="text" name="username" id="username" placeholder="Your photo url" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
+                    <input type="text" name="photoURL" placeholder="Your photo url" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
                     <label htmlFor="password" className="block ">

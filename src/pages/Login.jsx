@@ -1,23 +1,36 @@
+import { useContext } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+    const {logIn} = useContext(AuthContext);
+    const handleLogIn = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        logIn(email, password)
+        .then(res => {
+            console.log(res.user);
+        })
+        .catch(error => console.error(error))
+    }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Login</h1>
             {/* Input fields and the form started */}
-            <form action="" className="space-y-6">
+            <form onSubmit={handleLogIn} className="space-y-6">
                 <div className="space-y-2 text-sm">
                     <label htmlFor="username" className="block ">
                         Your name
                     </label>
-                    <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
+                    <input type="email" required name="email"  placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
                     <label htmlFor="password" className="block ">
                         Password
                     </label>
-                    <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <input type="password" name="password"  placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
                     <div className="flex justify-end text-xs ">
                         <a href="#" className="hover:underline">
                             Forgot Password?
@@ -55,7 +68,7 @@ const Login = () => {
             </div>
             <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">
                 Don&apos;t have an account?
-                <Link to='/signup' className="underline hover:text-[#007F73] font-bold">
+                <Link to='/register' className="underline hover:text-[#007F73] font-bold">
                     Register
                 </Link>
             </p>

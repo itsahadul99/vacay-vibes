@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { FaLocationPin  } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Estate = ({ data }) => {
     // console.log(data);
-    const { status, button, estate_title, price, image, area, facilities, location } = data;
+    const { id, status, button, estate_title, price, image, area, facilities, location } = data;
     return (
         <div className="mx-auto w-full  space-y-3 rounded-xl bg-gray-100 px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
             <div className="relative flex h-48 w-full justify-center">
@@ -30,7 +31,7 @@ const Estate = ({ data }) => {
                         }
                     </div>
                 </div>
-                <button className="rounded-lg bg-[#4CCD99] mt-2 px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-[#007F73]">{button}</button>
+                <Link to={`/${id}`}><button className="rounded-lg bg-[#4CCD99] mt-2 px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-[#007F73]">{button}</button></Link>
             </div>
         </div>
     );

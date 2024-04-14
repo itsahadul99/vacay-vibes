@@ -20,11 +20,10 @@ const OurAgents = () => {
             <Swiper
                 slidesPerView={3}
                 loop={true}
-                spaceBetween={30}
                 freeMode={true}
                 navigation={true}
                 autoplay={{
-                    delay: 2000,
+                    delay: 3000,
                 }}
                 modules={[FreeMode, Navigation, Autoplay]}>
                 <SwiperSlide>

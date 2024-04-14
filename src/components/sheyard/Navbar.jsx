@@ -1,6 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
     const links = <>
         <li>
             <NavLink to='/' className={({ isActive }) =>
@@ -37,17 +40,24 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-12 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Update Profile</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                {
+                    user ?
+                    //  <div className="dropdown dropdown-end">
+                    //     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    //         <div className="w-12 rounded-full">
+                    //             <img alt="User Image" src={`${user.photoURL}`} />
+                    //         </div>
+                    //     </div>
+                    //     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
+                    //         <li><a>Update Profile</a></li>
+                    //         <li><a>Logout</a></li>
+                    //     </ul>
+                    // </div> 
+                    <button className="btn btn-primary">Log Out</button>
+                    : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
+                }
+
+
             </div>
         </div>
     );

@@ -19,7 +19,7 @@ const OurClients = () => {
                 loop={true}
                 autoplay = {
                     {
-                        delay: 2500,
+                        delay: 2000,
                     }
                 }
                 spaceBetween={30}
