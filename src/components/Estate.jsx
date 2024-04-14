@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { FaLocationPin  } from "react-icons/fa6";
+import { FaLocationPin } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Estate = ({ data }) => {
     // console.log(data);
-    const { id, status, button, estate_title, price, image, area, facilities, location } = data;
+    const { id, status, button, estate_title, price, image, area, facilities, location, segment_name } = data;
     return (
         <div className="mx-auto w-full  space-y-3 rounded-xl bg-gray-100 px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
             <div className="relative flex h-48 w-full justify-center">
@@ -19,7 +19,10 @@ const Estate = ({ data }) => {
                 <p>Price: {price}</p>
             </div>
             <div className="mx-auto space-y-2  font-semibold">
-                <p className="flex gap-3 items-center text-sm font-medium"><FaLocationPin  /> {location}</p>
+                <div className="flex justify-between items-center text-sm font-medium">
+                    <p className="flex gap-3 items-center"><FaLocationPin /> {location}</p>
+                    <p><span className="font-bold">Category:</span> {segment_name}</p>
+                </div>
                 <h6 className="text-sm md:text-lg lg:text-xl">{estate_title}</h6>
             </div>
             <div>

@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
     const {logIn, error, setError, googleLogIn, githubLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogIn = (e) => {
         e.preventDefault();
         setError(null)
@@ -14,6 +16,8 @@ const Login = () => {
         logIn(email, password)
         .then(() => {
             toast('Successfully logged in 😍')
+            // navigate
+            navigate(location?.state? location.state: '/');
         })
         .catch(error => setError(error.message))
     }
