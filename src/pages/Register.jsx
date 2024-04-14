@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const Register = () => {
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Register</h1>
@@ -44,7 +44,7 @@ const SignUp = () => {
             </form>
             <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">
                 Already have an account?
-                <Link to='/login' className="underline hover:text-[#007F73]">
+                <Link to='/login' className="underline hover:text-[#007F73] font-bold">
                     Log in
                 </Link>
             </p>
@@ -52,4 +52,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Register;

@@ -55,8 +55,8 @@ const Login = () => {
             </div>
             <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">
                 Don&apos;t have an account?
-                <Link to='/signup' className="underline hover:text-[#007F73]">
-                    Sign up
+                <Link to='/signup' className="underline hover:text-[#007F73] font-bold">
+                    Register
                 </Link>
             </p>
         </div>
