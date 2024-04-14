@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const {createUser, user, error, setError} = useContext(AuthContext);
@@ -35,6 +36,9 @@ const Register = () => {
     }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
+            <Helmet>
+                <title>Register Page</title>
+            </Helmet>
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Register</h1>
             {/* Input fields and the form started */}
             <form onSubmit={handleForm} className="space-y-6">

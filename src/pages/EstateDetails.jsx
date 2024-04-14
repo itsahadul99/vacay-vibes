@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const EstateDetails = () => {
@@ -9,6 +10,9 @@ const EstateDetails = () => {
     console.log(matchData);
     return (
         <div>
+            <Helmet>
+                <title>Estate Details Page</title>
+            </Helmet>
             <h1>Matched data id : {matchData.id}</h1>
         </div>
     );

@@ -8,10 +8,10 @@ const Navbar = () => {
     const handleLogOut = () => {
         setError(null);
         logOut()
-        .then(() => {
-            toast('Successfully logged out !!')
-        })
-        .catch(error => setError(error.message))
+            .then(() => {
+                toast('Successfully logged out !!')
+            })
+            .catch(error => setError(error.message))
     }
     const links = <>
         <li>
@@ -22,21 +22,30 @@ const Navbar = () => {
                 Home</NavLink>
         </li>
         <li>
-            <NavLink to='/login' className={({ isActive }) =>
-                isActive
-                    ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
-                    : "font-bold"}>
-                Login</NavLink>
+            {
+                user ? '' : <NavLink to='/login' className={({ isActive }) =>
+                    isActive
+                        ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                        : "font-bold"}>
+                    Login</NavLink>
+            }
         </li>
         {
             user && <li>
                 <NavLink to='/updateProfile' className={({ isActive }) =>
-                isActive
-                    ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
-                    : "font-bold"}>
-                Update Profile</NavLink>
+                    isActive
+                        ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                        : "font-bold"}>
+                    Update Profile</NavLink>
             </li>
         }
+        <li>
+        <NavLink to='/contact' className={({ isActive }) =>
+            isActive
+                ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                : "font-bold"}>
+            Contact Us</NavLink>
+    </li>
     </>
     return (
         <div className="navbar my-3 lg:mt-6">
@@ -60,18 +69,18 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                     <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-12 rounded-full">
-                                <img alt="User Image" src={`${user?.photoURL}`} />
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-12 rounded-full">
+                                    <img alt="User Image" src={`${user?.photoURL}`} />
+                                </div>
                             </div>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><a onClick={handleLogOut}>Logout</a></li>
+                            </ul>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a onClick={handleLogOut}>Logout</a></li>
-                        </ul>
-                    </div> 
-                    // <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
-                    : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
+                        // <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+                        : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
                 }
             </div>
         </div>
