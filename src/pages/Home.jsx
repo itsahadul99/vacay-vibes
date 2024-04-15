@@ -4,11 +4,15 @@ import Estate from "../components/Estate";
 import OurAgents from "../components/OurAgents";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import OurClients from "../components/OurClients";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const data = useLoaderData();
     return (
         <div className="relative mb-5 lg:mb-10">
+            <Helmet>
+                <title>Vacay Vibes || Home</title>
+            </Helmet>
             <Banner />
             <div className="my-5 lg:my-10">
                 <div data-aos="flip-left"

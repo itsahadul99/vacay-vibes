@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyAKY4zBuNLz3sIs3Vyk-5qPErKfKB0kRjs",
-  authDomain: "vacay-vibes.firebaseapp.com",
-  projectId: "vacay-vibes",
-  storageBucket: "vacay-vibes.appspot.com",
-  messagingSenderId: "1058704961080",
-  appId: "1:1058704961080:web:d487bef99528e454b540cd"
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

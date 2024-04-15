@@ -2,11 +2,10 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
-
 const Navbar = () => {
     const { user, logOut, setError, loading } = useContext(AuthContext)
     if (loading) {
-        return <div className="flex items-center justify-center min-h-[calc(100vh-200px)]"><span className="loading loading-bars loading-lg"></span></div>;
+        return <div className="flex items-center justify-center"><span className="loading loading-bars loading-lg"></span></div>;
     }
     const handleLogOut = () => {
         setError(null);
@@ -91,7 +90,6 @@ const Navbar = () => {
                                 <li><a onClick={handleLogOut}>Logout</a></li>
                             </ul>
                         </div>
-                        // <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
                         : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
                 }
             </div>

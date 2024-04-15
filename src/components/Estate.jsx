@@ -1,14 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Helmet } from "react-helmet-async";
 import { FaLocationPin } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Estate = ({ data }) => {
     const { id, status, button, estate_title, price, image, area, facilities, location, segment_name } = data;
     return (
         <div className=" mx-auto w-full  space-y-3 rounded-xl bg-gray-100 px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
-            <Helmet>
-                <title>Vacay Vibes || Estate</title>
-            </Helmet>
             <div className="relative flex h-48 w-full justify-center">
                 <div data-aos="fade-up" data-aos-duration="3000" className="absolute left-4 right-6 top-4 flex items-center justify-between">
                     <div className="flex items-center"><button className="rounded-xl bg-[#4CCD99] px-3 py-1 font-medium text-white duration-200 hover:hover:bg-[#007F73]">Status:</button></div>

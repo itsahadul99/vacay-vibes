@@ -5,7 +5,7 @@ const ContactUs = () => {
     return (
         <div className="flex flex-col justify-center items-center gap-5 px-5 lg:px-8 py-5 lg:py-10 bg-[#31363F] text-white my-5 lg:my-10 text-opacity-80 rounded-lg">
             <Helmet>
-                <title>Contact Page</title>
+                <title>Vacay Vibes || Contact Page</title>
             </Helmet>
             <h1 data-aos="fade-down"
                 data-aos-easing="linear"

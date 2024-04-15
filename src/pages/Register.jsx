@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
     const {createUser, user, error, setError} = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false)
     const handleForm = (e) =>{
         e.preventDefault();
         setError(null)
@@ -37,7 +38,7 @@ const Register = () => {
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <Helmet>
-                <title>Register Page</title>
+                <title>Vacay Vibes || Register Page</title>
             </Helmet>
             <h1 className="text-3xl font-bold text-center text-[#4CCD99]">Register</h1>
             {/* Input fields and the form started */}
@@ -60,11 +61,16 @@ const Register = () => {
                     </label>
                     <input type="text" name="photoURL" placeholder="Your photo url" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm relative">
                     <label htmlFor="password" className="block ">
                         Password
                     </label>
-                    <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <span onClick={() => setShowPassword(!showPassword)} className="absolute right-5 top-[35px]">
+                        {
+                            showPassword ? < FaEyeSlash size={18} /> : <FaEye size={18}/>
+                        }
+                    </span>
                 </div>
                 <div>
                     {

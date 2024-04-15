@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    const {logIn, error, setError, googleLogIn, githubLogin} = useContext(AuthContext);
+    const { logIn, error, setError, googleLogIn, githubLogin } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false)
     const location = useLocation();
     const navigate = useNavigate();
     const handleLogIn = (e) => {
@@ -15,31 +16,31 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         logIn(email, password)
-        .then(() => {
-            toast('Successfully logged in 😍')
-            navigate(location?.state? location.state: '/');
-        })
-        .catch(error => setError(error.message))
+            .then(() => {
+                toast('Successfully logged in 😍')
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => setError(error.message))
     }
     const handleGoogleLonIn = () => {
         setError(null);
         googleLogIn()
-        .then(() => {
-            toast('Successfully logged in by Google 😍');
-            navigate(location?.state? location.state: '/');
-        })
-        .catch(error => setError(error.message))
+            .then(() => {
+                toast('Successfully logged in by Google 😍');
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => setError(error.message))
     }
     const handleGithubLogIn = () => {
         setError(null);
         githubLogin()
-        .then(() => {
-            toast('Successfully logged in by Github 😍');
-            navigate(location?.state? location.state: '/');
-        })
-        .catch(error => setError(error.message))
+            .then(() => {
+                toast('Successfully logged in by Github 😍');
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => setError(error.message))
     }
-    
+
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl border-2 border-dotted bg-white   font-sans mx-auto my-5 lg:my-14">
             <Helmet>
@@ -52,13 +53,18 @@ const Login = () => {
                     <label htmlFor="username" className="block ">
                         Your name
                     </label>
-                    <input type="email" required name="email"  placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
+                    <input type="email" required name="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
-                <div className="space-y-2 text-sm">
-                    <label htmlFor="password" className="block ">
+                <div className="space-y-2 text-sm relative">
+                    <label htmlFor="password" className="block">
                         Password
                     </label>
-                    <input type="password" name="password"  placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <div onClick={() => setShowPassword(!showPassword)} className="absolute right-5 top-[36px]">
+                        {
+                            showPassword ? < FaEyeSlash size={18} /> : <FaEye size={18}/>
+                        }
+                    </div>
                     <div>
                         {
                             error && <h5 className="text-red-400">{error}</h5>
