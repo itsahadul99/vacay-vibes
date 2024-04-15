@@ -4,7 +4,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const { user, logOut, setError } = useContext(AuthContext)
+    const { user, logOut, setError, loading } = useContext(AuthContext)
+    if (loading) {
+        return <div className="flex items-center justify-center min-h-[calc(100vh-200px)]"><span className="loading loading-bars loading-lg"></span></div>;
+    }
     const handleLogOut = () => {
         setError(null);
         logOut()
@@ -30,6 +33,15 @@ const Navbar = () => {
                     Login</NavLink>
             }
         </li>
+        {
+            user && <li>
+                <NavLink to='/profile' className={({ isActive }) =>
+                    isActive
+                        ? "btn btn-outline btn-success font-bold text-xs lg:text-lg"
+                        : "font-bold"}>
+                    Profile</NavLink>
+            </li>
+        }
         {
             user && <li>
                 <NavLink to='/updateProfile' className={({ isActive }) =>

@@ -8,12 +8,12 @@ import OurClients from "../components/OurClients";
 const Home = () => {
     const data = useLoaderData();
     return (
-        <div className="mb-5 lg:mb-10">
+        <div className="relative mb-5 lg:mb-10">
             <Banner />
             <div className="my-5 lg:my-10">
                 <div data-aos="flip-left"
                     data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000" className="my-5 lg:my-16 flex flex-col justify-center items-center">
+                    data-aos-duration="1800" className="my-5 lg:my-16 flex flex-col justify-center items-center">
                     <MdOutlineKeyboardArrowUp size={40} className="font-bold text-[#4CCD99]" />
                     <h4 className="text-sm lg:text-lg font-medium opacity-70 p-2">Find your dream Property</h4>
                     <h1 className="text-xl uppercase md:text-3xl lg:text-5xl font-normal pb-2">Find a Property</h1>

@@ -8,6 +8,7 @@ import EstateDetails from "../pages/EstateDetails";
 import PrivateRouter from '../routes/PrivateRouter';
 import UpdateProfile from "../pages/UpdateProfile";
 import ContactUs from "../pages/ContactUs";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/profile',
+                element: <Profile />
             },
             {
                 path: '/updateProfile',

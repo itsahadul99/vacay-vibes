@@ -3,10 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { FaLocationPin } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Estate = ({ data }) => {
-    // console.log(data);
     const { id, status, button, estate_title, price, image, area, facilities, location, segment_name } = data;
     return (
-        <div className="mx-auto w-full  space-y-3 rounded-xl bg-gray-100 px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
+        <div className=" mx-auto w-full  space-y-3 rounded-xl bg-gray-100 px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
             <Helmet>
                 <title>Vacay Vibes || Estate</title>
             </Helmet>

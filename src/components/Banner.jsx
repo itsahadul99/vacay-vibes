@@ -18,13 +18,13 @@ const Banner = () => {
             modules={[Pagination, Autoplay]}
             navigation={true}
             loop={true} autoplay={{
-                delay: 2500,
+                delay: 3200,
             }}>
             <SwiperSlide>
-                <div className="hero min-h-[calc(100vh-130px)]" style={{ backgroundImage: `url(${Banner1})` }}>
+                <div data-aos="zoom-out" data-aos-duration="3000" className="hero min-h-[calc(100vh-130px)]" style={{ backgroundImage: `url(${Banner1})` }}>
                     <div className="hero-overlay bg-opacity-60l"></div>
                     <div className="hero-content text-center text-neutral-content">
-                        <div className="text-center bg-[#20212048] p-4">
+                        <div data-aos="zoom-in" data-aos-duration="2000" className="text-center bg-[#20212048] p-4">
                             <h1 className="text-5xl font-bold  cursor-pointer">Find Your Dream Property</h1>
                             <p className="mb-2">We are provide the best property in suitable price. <br /> You can find your dream property by us.</p>
                             <button className="btn btn-sm bg-[#4CCD99]">Learn More</button>

@@ -8,7 +8,11 @@ import { FreeMode, Navigation, Autoplay } from 'swiper/modules';
 const OurClients = () => {
     return (
         <div>
-            <div className="my-5 lg:my-16 flex flex-col justify-center items-center">
+            <div
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1800"
+                className="my-5 lg:my-16 flex flex-col justify-center items-center">
                 <MdOutlineKeyboardArrowUp size={40} className="font-bold text-[#4CCD99]" />
                 <h4 className="text-lg font-medium opacity-70 p-2">WE ALWAYS HAVE TRUST</h4>
                 <h1 className="text-2xl uppercase md:text-3xl lg:text-5xl font-normal pb-2 ">Our Clients</h1>
@@ -17,7 +21,7 @@ const OurClients = () => {
             <Swiper
                 slidesPerView={3}
                 loop={true}
-                autoplay = {
+                autoplay={
                     {
                         delay: 2000,
                     }
