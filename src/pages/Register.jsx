@@ -6,14 +6,13 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
-    const {createUser, user, error, setError} = useContext(AuthContext);
+    const {createUser, error, setError} = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false)
     const handleForm = (e) =>{
         e.preventDefault();
         setError(null)
         const name = e.target.name.value;
         const email = e.target.email.value;
-        const photoURL = e.target.photoURL.value;
         const password = e.target.password.value;
         if(password.length< 6){
             setError('Password length must be at least 6 character');
@@ -33,6 +32,7 @@ const Register = () => {
         })
         .catch(error => {
             setError(error.message)
+            toast.warning('Email Already Used')
         })
     }
     return (
@@ -44,25 +44,25 @@ const Register = () => {
             {/* Input fields and the form started */}
             <form onSubmit={handleForm} className="space-y-6">
                 <div className="space-y-2 text-sm">
-                    <label htmlFor="username" className="block ">
+                    <label htmlFor="username" className="block font-semibold">
                         Your name
                     </label>
                     <input type="text" name="name" placeholder="Username" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
-                    <label htmlFor="username" className="block ">
+                    <label htmlFor="username" className="block font-semibold">
                         Email
                     </label>
                     <input type="email" required name="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm">
-                    <label htmlFor="username" className="block ">
+                    <label htmlFor="username" className="block font-semibold">
                         PhotoURL
                     </label>
                     <input type="text" name="photoURL" placeholder="Your photo url" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm relative">
-                    <label htmlFor="password" className="block ">
+                    <label htmlFor="password" className="block font-semibold">
                         Password
                     </label>
                     <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />

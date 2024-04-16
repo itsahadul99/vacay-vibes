@@ -27,7 +27,16 @@ const UpdateProfile = () => {
                     <label htmlFor="photoURL" className="block font-semibold mb-2">Photo URL:</label>
                     <input type="url" name="photoURL"className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#4CCD99]" />
                 </div>
-                <button type="submit" className="w-full bg-[#4CCD99] text-white px-4 py-2 rounded-lg hover:bg-[#007F73]">Save Change</button>
+                <button className="text-lg rounded-xl relative p-[10px] block w-full bg-[#4CCD99] text-white border-y-4 duration-500 overflow-hidden focus:border-[#4CCD99] z-50 group">
+                   Update
+                    <span className="absolute opacity-0 group-hover:opacity-100 duration-100 group-hover:duration-1000 ease-out flex justify-center inset-0 items-center z-10 text-white">
+                        Let&apos;s update
+                    </span>
+                    <span className="bg-[#007F73] absolute inset-0 -translate-y-full group-hover:translate-y-0 group-hover:duration-1000"></span>
+                    <span className="bg-[#007F73] absolute inset-0 translate-y-full group-hover:translate-y-0 group-hover:duration-1000"></span>
+                    <span className="bg-[#007F73] absolute inset-0 translate-x-full group-hover:translate-x-0 group-hover:delay-300 delay-100 duration-1000"></span>
+                    <span className="bg-[#007F73] absolute inset-0 -translate-x-full group-hover:translate-x-0 group-hover:delay-300 delay-100 duration-1000"></span>
+                </button>
             </form>
         </div>
     );

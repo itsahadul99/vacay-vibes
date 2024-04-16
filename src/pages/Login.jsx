@@ -10,9 +10,9 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const location = useLocation();
     const navigate = useNavigate();
+    setError(null)
     const handleLogIn = (e) => {
         e.preventDefault();
-        setError(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
         logIn(email, password)

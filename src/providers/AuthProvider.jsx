@@ -8,7 +8,6 @@ import {
     signOut,
     GoogleAuthProvider,
     GithubAuthProvider,
-    updateProfile
   } from "firebase/auth";
   import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
@@ -20,10 +19,9 @@ import auth from "../firebase/firebase.config";
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
-      setLoading(true)
+      // setLoading(true)
       return createUserWithEmailAndPassword(auth, email, password);
     };
-  
     const logIn = (email, password)=>{
       setLoading(true)
       return signInWithEmailAndPassword(auth, email, password)
@@ -44,7 +42,6 @@ import auth from "../firebase/firebase.config";
   
     useEffect(() => {
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-        // console.log("user in the auth state change", currentUser);
         setUser(currentUser);
         setLoading(false)
       });
@@ -56,6 +53,7 @@ import auth from "../firebase/firebase.config";
     const authInfo = {
       user,
       loading,
+      setLoading,
       createUser,
       logIn,
       logOut,

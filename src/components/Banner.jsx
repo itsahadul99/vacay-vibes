@@ -4,7 +4,6 @@ import Banner3 from '../assets/banner3.jpg'
 import Banner4 from '../assets/banner4.jpg'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';

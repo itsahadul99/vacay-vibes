@@ -7,8 +7,9 @@ import { Helmet } from "react-helmet-async";
 const Profile = () => {
     const { loading } = useContext(AuthContext);
     if (loading) {
-        return <div className="flex items-center justify-center"><span className="loading loading-bars loading-lg"></span></div>;
+        return <div className="flex items-center justify-center min-h-[calc(100vh-200px)]"><div className="w-10 h-10 flex gap-1 items-center justify-center"><div className="w-2 h-2 animate-[bounce_.6s_linear_.2s_infinite] bg-[#4CCD99] rounded-full"></div><div className="w-2 h-2 animate-[bounce_.6s_linear_.3s_infinite] bg-[#4CCD99] rounded-full"></div><div className="w-2 h-2 animate-[bounce_.6s_linear_.4s_infinite] bg-[#4CCD99] rounded-full"></div></div></div>;
     }
+    // setLoading(true)
     const user = auth.currentUser;
     if(user === null){
         return <Navigate to = "/"></Navigate>
@@ -23,7 +24,7 @@ const Profile = () => {
                 <title>Vacay Vibes || Profile</title>
             </Helmet>
             <div className="flex flex-col justify-center w-full lg:w-1/2 my-5 lg:my-10 p-6 shadow-md rounded-xl sm:px-12 border">
-                <img data-aos="zoom-in" data-aos-duration='2000' src={photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+                <img data-aos="zoom-in" data-aos-duration='2000' src={photoURL} alt="" className="w-32 h-32 mx-auto rounded-full  aspect-square" />
                 <div data-aos="zoom-in" data-aos-duration='3000' className="space-y-4 text-center">
                     <div className="my-2 space-y-1">
                         <h2 className="text-xl font-semibold sm:text-2xl">Name: {displayName}</h2>
