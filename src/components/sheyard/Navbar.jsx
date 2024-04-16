@@ -81,14 +81,12 @@ const Navbar = () => {
                 {
                     user ?
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-2">
                                 <div className="w-12 rounded-full">
                                     <img alt="User Image" src={`${user?.photoURL}`} />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a onClick={handleLogOut}>Logout</a></li>
-                            </ul>
+                            <button onClick={handleLogOut} className="btn bg-[#4CCD99]">Log Out</button>
                         </div>
                         : <Link to='/register'><button className="btn bg-[#4CCD99]">Register</button></Link>
                 }

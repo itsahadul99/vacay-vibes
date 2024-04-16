@@ -5,7 +5,7 @@ const OurAgents = () => {
         <div>
             <div data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
-                data-aos-duration="1800"
+                data-aos-duration="1500"
                 className="my-5 lg:my-16 flex flex-col justify-center items-center">
                 <MdOutlineKeyboardArrowUp size={40} className="font-bold text-[#4CCD99]" />
                 <h4 className="text-sm lg:text-lg font-medium opacity-70 p-2">WE HAVE PROFESSIONAL AGENTS</h4>
@@ -15,7 +15,7 @@ const OurAgents = () => {
             <div className="flex flex-col md:flex-row lg:flex-row md:flex-wrap lg:flex-nowrap gap-5">
                 <div data-aos="fade-right"
                     data-aos-easing="linear"
-                    data-aos-duration="2500"
+                    data-aos-duration="1800"
                     className="text-white relative p-5 flex flex-col justify-center">
                     <img className="w-full" src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/02/fatmaghaly-1-270x340.png'} />
                     <div className=" w-full bg-[#222222] absolute -bottom-2 space-y-1">
@@ -29,7 +29,7 @@ const OurAgents = () => {
                     </div>
                 </div>
                 <div data-aos="fade-up"
-                    data-aos-duration="2500"
+                    data-aos-duration="2000"
                     className="text-white relative p-5 flex flex-col justify-center">
                     <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/abodyswede-270x340.png'} />
                     <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
@@ -45,7 +45,7 @@ const OurAgents = () => {
                 <div
                     data-aos="fade-down"
                     data-aos-easing="linear"
-                    data-aos-duration="2500"
+                    data-aos-duration="2200"
                     className="text-white relative p-5 flex flex-col justify-center">
                     <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/ayamagdy-270x340.png'} />
                     <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">
@@ -61,7 +61,7 @@ const OurAgents = () => {
                 <div
                     data-aos="fade-left"
                     data-aos-easing="linear"
-                    data-aos-duration="2500"
+                    data-aos-duration="2400"
                     className="text-white relative p-5 flex flex-col justify-center">
                     <img src={'https://beyot.g5plus.net/main/wp-content/uploads/2017/01/modymagdy-270x340.png'} />
                     <div className="bg-[#222222] absolute -bottom-2 w-full space-y-1">

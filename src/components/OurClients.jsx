@@ -11,7 +11,7 @@ const OurClients = () => {
             <div
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
-                data-aos-duration="1800"
+                data-aos-duration="1500"
                 className="my-5 lg:my-16 flex flex-col justify-center items-center">
                 <MdOutlineKeyboardArrowUp size={40} className="font-bold text-[#4CCD99]" />
                 <h4 className="text-lg font-medium opacity-70 p-2">WE ALWAYS HAVE TRUST</h4>

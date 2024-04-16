@@ -10,17 +10,33 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const location = useLocation();
     const navigate = useNavigate();
-    setError(null)
     const handleLogIn = (e) => {
         e.preventDefault();
+        setError(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
+        if (password.length < 6) {
+            setError('Password length must be at least 6 character');
+            return;
+        }
+        if (!/^(?=.*[A-Z])/.test(password)) {
+            setError('Password must have an one Uppercase letter')
+            return;
+        }
+        if (!/^(?=.*[a-z])/.test(password)) {
+            setError('Password must have an one Lowercase letter')
+            return;
+        }
         logIn(email, password)
             .then(() => {
                 toast('Successfully logged in 😍')
                 navigate(location?.state ? location.state : '/');
             })
-            .catch(error => setError(error.message))
+            .catch((error) => {
+                toast.warning(`${error.message}
+                Please register first`)
+                navigate('/register');
+            })
     }
     const handleGoogleLonIn = () => {
         setError(null);
@@ -29,7 +45,9 @@ const Login = () => {
                 toast('Successfully logged in by Google 😍');
                 navigate(location?.state ? location.state : '/');
             })
-            .catch(error => setError(error.message))
+            .catch(() => {
+                toast.warning('Something went wrong try letter')
+            })
     }
     const handleGithubLogIn = () => {
         setError(null);
@@ -38,7 +56,9 @@ const Login = () => {
                 toast('Successfully logged in by Github 😍');
                 navigate(location?.state ? location.state : '/');
             })
-            .catch(error => setError(error.message))
+            .catch(() => {
+                toast.warning('Something went wrong try letter')
+            })
     }
 
     return (
@@ -51,18 +71,18 @@ const Login = () => {
             <form onSubmit={handleLogIn} className="space-y-6">
                 <div className="space-y-2 text-sm">
                     <label htmlFor="username" className="block ">
-                        Your name
+                        Your Email <span className="text-red-400 text-xs">&#9733;</span>
                     </label>
                     <input type="email" required name="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none focus:border-2  " />
                 </div>
                 <div className="space-y-2 text-sm relative">
                     <label htmlFor="password" className="block">
-                        Password
+                        Password <span className="text-red-400 text-xs">&#9733;</span>
                     </label>
-                    <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
+                    <input type={showPassword ? "text" : "password"} required name="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-[#4CCD99] focus:outline-none  focus:border-2 " />
                     <div onClick={() => setShowPassword(!showPassword)} className="absolute right-5 top-[36px]">
                         {
-                            showPassword ? < FaEyeSlash size={18} /> : <FaEye size={18}/>
+                            showPassword ? < FaEyeSlash size={18} /> : <FaEye size={18} />
                         }
                     </div>
                     <div>
